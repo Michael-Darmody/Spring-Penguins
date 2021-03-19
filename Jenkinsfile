@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh maven clean package
+                sh 'maven clean package'
             }
         }
         stage('Test') {
             steps {
-               junit 'target/surefire-reports/**/*.xml
+               junit 'target/surefire-reports/**/*.xml'
             }
         }
         stage('Deploy') {
             steps {
-               java -jar target/spring-penguins-0.0.1-SNAPSHOT.jar
+               java '-jar target/spring-penguins-0.0.1-SNAPSHOT.jar'
             }
         }
     }
